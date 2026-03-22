@@ -28,6 +28,10 @@ def load_resources():
     except Exception as e:
         print(f"Error loading model resources: {e}")
 
+@app.route('/')
+def home():
+    return jsonify({'status': 'ok', 'message': 'Crop Yield Prediction API is running'})
+
 @app.route('/predict', methods=['POST'])
 def predict():
     if model is None:
