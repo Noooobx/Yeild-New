@@ -56,7 +56,7 @@ function App() {
     setPrediction(null);
 
     try {
-      const response = await axios.post('http://localhost:3000/predict', formData);
+      const response = await axios.post('https://yeild-new.onrender.com//predict', formData);
       setPrediction(response.data.prediction);
     } catch (err) {
       setError(err.response?.data?.error || 'Failed to predict yield. Please check if backend is running.');
