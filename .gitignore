@@ -10,11 +10,6 @@ build/
 venv/
 .env
 
-# Models (large binary files)
-backend/models/*.pkl
-backend/models/*.joblib
-backend/models/*.h5
-
 # Node / React
 node_modules/
 frontend/node_modules/

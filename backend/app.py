@@ -8,7 +8,8 @@ app = Flask(__name__)
 CORS(app)
 
 # Load model and encoders
-MODEL_DIR = 'models'
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_DIR = os.path.join(BASE_DIR, 'models')
 model = None
 le_crop = None
 le_state = None
@@ -77,7 +78,7 @@ def metadata():
         load_resources()
     
     # Load recommendation values for comparison
-    df_rec = pd.read_csv('../Crop_recommendation.csv')
+    df_rec = pd.read_csv(os.path.join(BASE_DIR, '..', 'Crop_recommendation.csv'))
     df_rec['label'] = df_rec['label'].str.lower().str.strip()
     
     crop_stats = df_rec.groupby('label').agg({
@@ -96,4 +97,5 @@ def metadata():
 
 if __name__ == '__main__':
     load_resources()
-    app.run(debug=True, port=3000)
+    port = int(os.environ.get('PORT', 3000))
+    app.run(debug=False, host='0.0.0.0', port=port)
