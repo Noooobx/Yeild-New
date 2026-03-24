@@ -9,6 +9,7 @@ function App() {
     state: 'Assam',
     season: 'Kharif',
     area: '',
+    fertilizer: '',
     nitrogen: '',
     phosphorus: '',
     potassium: '',
@@ -109,6 +110,11 @@ function App() {
                 <label><Layers size={18} inline /> Area (Hectares)</label>
                 <input type="number" name="area" value={formData.area} onChange={handleChange} placeholder="e.g. 100" required />
               </div>
+            </div>
+
+            <div className="form-group">
+              <label><FlaskConical size={18} inline /> Fertilizer (kg)</label>
+              <input type="number" step="0.1" name="fertilizer" value={formData.fertilizer} onChange={handleChange} placeholder="e.g. 50000" required />
             </div>
 
             <h3 style={{ margin: '1rem 0' }}><FlaskConical size={20} inline /> Soil Nutrients</h3>

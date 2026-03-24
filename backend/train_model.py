@@ -50,7 +50,7 @@ def train():
     # Features: Crop, State, Season, Area, N, P, K, temperature, humidity, ph, rainfall
     # Target: Yield
     
-    features = ['Crop', 'State', 'Season', 'Area', 'N', 'P', 'K', 'temperature', 'humidity', 'ph', 'rainfall']
+    features = ['Crop', 'State', 'Season', 'Area', 'N', 'P', 'K', 'temperature', 'humidity', 'ph', 'rainfall', 'Fertilizer']
     target = 'Yield'
 
     X = df_final[features]

@@ -54,7 +54,8 @@ def predict():
             'temperature': float(data['temperature']),
             'humidity': float(data['humidity']),
             'ph': float(data['ph']),
-            'rainfall': float(data['rainfall'])
+            'rainfall': float(data['rainfall']),
+            'Fertilizer': float(data['fertilizer'])
         }])
 
         # Handle label encoding
