@@ -35,7 +35,7 @@ function App() {
   const fetchMetadata = async () => {
     setMetadata(prev => ({ ...prev, loading: true, error: null }));
     try {
-      const response = await axios.get('http://127.0.0.1:3000/metadata');
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/metadata`);
       console.log('Metadata fetched successfully:', response.data);
       setMetadata({
         ...response.data,
@@ -70,7 +70,7 @@ function App() {
     setPrediction(null);
 
     try {
-      const response = await axios.post('http://127.0.0.1:3000/predict', formData);
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/predict`, formData);
       setPrediction(response.data.prediction);
     } catch (err) {
       setError(err.response?.data?.error || 'Failed to predict yield. Please check if backend is running.');
